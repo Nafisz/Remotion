@@ -29,19 +29,19 @@ export const ImplikasiScene: React.FC = () => {
   const { fps } = useVideoConfig();
 
   // Camera expand: scale from 1.5 to 1.0
-  const cameraScale = interpolate(frame, [0, 24], [1.5, 1.0], {
+  const cameraScale = interpolate(frame, [0, 48], [1.5, 1.0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
   });
 
-  const cameraOpacity = interpolate(frame, [0, 8], [0, 1], {
+  const cameraOpacity = interpolate(frame, [0, 16], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   // Confidence meter
-  const confidenceValue = fillProgress(frame, 40, 45, CONFIDENCE_TARGET);
+  const confidenceValue = fillProgress(frame, 80, 90, CONFIDENCE_TARGET);
 
   // SVG arc for confidence
   const radius = 38;
@@ -74,7 +74,7 @@ export const ImplikasiScene: React.FC = () => {
           selectedAnswer={SELECTED_ANSWER}
           implications={IMPLICATIONS}
           frame={frame}
-          staggerStart={15}
+          staggerStart={30}
         />
 
         {/* Confidence meter */}
@@ -83,7 +83,7 @@ export const ImplikasiScene: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            opacity: fadeIn(frame, 50, 15),
+            opacity: fadeIn(frame, 100, 30),
           }}
         >
           <div style={{ position: "relative", width: 100, height: 100 }}>

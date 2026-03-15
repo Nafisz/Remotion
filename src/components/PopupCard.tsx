@@ -33,12 +33,12 @@ export const PopupCard: React.FC<PopupCardProps> = ({
   const opacity = interpolate(slideIn, [0, 1], [0, 1]);
 
   const avatarScale = spring({
-    frame: frame - 5,
+    frame: frame - 10,
     fps,
     config: { damping: 10, stiffness: 200, mass: 0.5 },
   });
 
-  const fadeOut = interpolate(frame, [90, 110], [1, 0.7], {
+  const fadeOut = interpolate(frame, [180, 220], [1, 0.7], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -101,7 +101,7 @@ export const PopupCard: React.FC<PopupCardProps> = ({
         {bars.map((bar, i) => {
           const barProgress = interpolate(
             frame,
-            [15 + i * 5, 35 + i * 5],
+            [30 + i * 10, 70 + i * 10],
             [0, 1],
             { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
           );
@@ -169,7 +169,7 @@ export const PopupCard: React.FC<PopupCardProps> = ({
           fontSize: 13,
           color: COLORS.accent,
           fontWeight: 500,
-          opacity: fadeIn(frame, 40, 15),
+          opacity: fadeIn(frame, 80, 30),
         }}
       >
         Lihat detail →

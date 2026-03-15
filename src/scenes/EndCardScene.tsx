@@ -30,7 +30,7 @@ export const EndCardScene: React.FC = () => {
           top: "42%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: interpolate(frame, [0, 20], [0, 60], {
+          width: interpolate(frame, [0, 40], [0, 60], {
             extrapolateLeft: "clamp",
             extrapolateRight: "clamp",
             easing: Easing.out(Easing.cubic),
@@ -50,8 +50,8 @@ export const EndCardScene: React.FC = () => {
           color: COLORS.text,
           margin: 0,
           letterSpacing: -1,
-          opacity: fadeIn(frame, 5, 15),
-          transform: `translateY(${slideUp(frame, 5, 15, 20)}px)`,
+          opacity: fadeIn(frame, 10, 30),
+          transform: `translateY(${slideUp(frame, 10, 30, 20)}px)`,
         }}
       >
         {LOGO_TEXT}
@@ -65,8 +65,8 @@ export const EndCardScene: React.FC = () => {
           fontWeight: 400,
           marginTop: 14,
           marginBottom: 0,
-          opacity: fadeIn(frame, 14, 15),
-          transform: `translateY(${slideUp(frame, 14, 15, 20)}px)`,
+          opacity: fadeIn(frame, 28, 30),
+          transform: `translateY(${slideUp(frame, 28, 30, 20)}px)`,
         }}
       >
         {TAGLINE}
@@ -79,8 +79,8 @@ export const EndCardScene: React.FC = () => {
           color: COLORS.accent,
           fontWeight: 600,
           marginTop: 18,
-          opacity: fadeIn(frame, 23, 15),
-          transform: `translateY(${slideUp(frame, 23, 15, 20)}px)`,
+          opacity: fadeIn(frame, 46, 30),
+          transform: `translateY(${slideUp(frame, 46, 30, 20)}px)`,
         }}
       >
         {URL_TEXT}

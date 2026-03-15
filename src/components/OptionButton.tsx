@@ -18,14 +18,14 @@ export const OptionButton: React.FC<OptionButtonProps> = ({
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const enterDelay = index * 5; // ~150ms apart at 30fps
-  const opacity = interpolate(frame, [enterDelay, enterDelay + 10], [0, 1], {
+  const enterDelay = index * 10; // ~150ms apart at 60fps
+  const opacity = interpolate(frame, [enterDelay, enterDelay + 20], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
   const translateY = interpolate(
     frame,
-    [enterDelay, enterDelay + 10],
+    [enterDelay, enterDelay + 20],
     [15, 0],
     {
       extrapolateLeft: "clamp",
@@ -35,7 +35,7 @@ export const OptionButton: React.FC<OptionButtonProps> = ({
   );
 
   const selectionProgress = isSelected
-    ? interpolate(frame, [selectionFrame, selectionFrame + 10], [0, 1], {
+    ? interpolate(frame, [selectionFrame, selectionFrame + 20], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
       })

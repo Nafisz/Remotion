@@ -29,12 +29,12 @@ export const SocialPopupScene: React.FC = () => {
   const { fps } = useVideoConfig();
 
   // Background card dims slightly
-  const bgDim = interpolate(frame, [0, 15], [1, 0.6], {
+  const bgDim = interpolate(frame, [0, 30], [1, 0.6], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  const bgBlur = interpolate(frame, [0, 15], [0, 3], {
+  const bgBlur = interpolate(frame, [0, 30], [0, 3], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });

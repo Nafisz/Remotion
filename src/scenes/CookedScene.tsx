@@ -26,23 +26,23 @@ export const CookedScene: React.FC = () => {
 
   // Rotation shake
   const shakeRotation =
-    frame < 20
-      ? interpolate(frame, [5, 8, 11, 14, 17], [-2, 2, -1, 1, 0], {
+    frame < 40
+      ? interpolate(frame, [10, 16, 22, 28, 34], [-2, 2, -1, 1, 0], {
           extrapolateLeft: "clamp",
           extrapolateRight: "clamp",
         })
       : 0;
 
   // Subtitle
-  const subtitleOpacity = fadeIn(frame, 15, 12);
-  const subtitleTranslateY = interpolate(frame, [15, 27], [10, 0], {
+  const subtitleOpacity = fadeIn(frame, 30, 24);
+  const subtitleTranslateY = interpolate(frame, [30, 54], [10, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   // Flame icon scale
   const flameScale = spring({
-    frame: frame - 3,
+    frame: frame - 6,
     fps,
     config: { damping: 6, stiffness: 200, mass: 0.5 },
   });
@@ -51,13 +51,13 @@ export const CookedScene: React.FC = () => {
   const particles = Array.from({ length: 8 }, (_, i) => {
     const angle = (i / 8) * Math.PI * 2;
     const baseRadius = 200;
-    const particleFrame = frame - 10;
-    const radius = particleFrame > 0 ? baseRadius * Math.min(particleFrame / 30, 1) : 0;
-    const x = Math.cos(angle + frame * 0.02) * radius;
-    const y = Math.sin(angle + frame * 0.02) * radius;
+    const particleFrame = frame - 20;
+    const radius = particleFrame > 0 ? baseRadius * Math.min(particleFrame / 60, 1) : 0;
+    const x = Math.cos(angle + frame * 0.01) * radius;
+    const y = Math.sin(angle + frame * 0.01) * radius;
     const particleOpacity = interpolate(
       frame,
-      [10, 20, 90, 110],
+      [20, 40, 180, 220],
       [0, 0.3, 0.3, 0],
       { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
     );
@@ -143,11 +143,11 @@ export const CookedScene: React.FC = () => {
       </p>
 
       {/* XP Bar */}
-      <div style={{ opacity: fadeIn(frame, 25, 12), width: 400 }}>
+      <div style={{ opacity: fadeIn(frame, 50, 24), width: 400 }}>
         <XPBar
           frame={frame}
-          startFrame={30}
-          duration={45}
+          startFrame={60}
+          duration={90}
           targetPercent={84.7}
           label="XP Progress"
         />
@@ -162,7 +162,7 @@ export const CookedScene: React.FC = () => {
         }}
       >
         {BADGES.map((badge, i) => (
-          <Badge key={i} text={badge} frame={frame} delay={50 + i * 8} />
+          <Badge key={i} text={badge} frame={frame} delay={100 + i * 16} />
         ))}
       </div>
     </div>
