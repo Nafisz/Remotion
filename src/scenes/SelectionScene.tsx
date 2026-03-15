@@ -20,17 +20,17 @@ const OPTIONS = [
 ];
 
 const SELECTED_INDEX = 1;
-const SELECTION_FRAME = 75; // ~2.5s
-const CONFIRM_FRAME = 105; // ~3.5s
+const SELECTION_FRAME = 150; // ~2.5s
+const CONFIRM_FRAME = 210; // ~3.5s
 
 export const SelectionScene: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const cardOpacity = fadeIn(frame, 0, 12);
-  const cardTranslateY = slideUp(frame, 0, 12, 30);
+  const cardOpacity = fadeIn(frame, 0, 24);
+  const cardTranslateY = slideUp(frame, 0, 24, 30);
 
-  const questionOpacity = fadeIn(frame, 5, 12);
+  const questionOpacity = fadeIn(frame, 10, 24);
 
   // Confirm button
   const confirmVisible = frame >= CONFIRM_FRAME;
@@ -43,13 +43,13 @@ export const SelectionScene: React.FC = () => {
     : 0;
 
   // Exit animation
-  const exitStart = 110;
-  const exitScale = interpolate(frame, [exitStart, 120], [1, 0.92], {
+  const exitStart = 220;
+  const exitScale = interpolate(frame, [exitStart, 240], [1, 0.92], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.in(Easing.cubic),
   });
-  const exitOpacity = interpolate(frame, [exitStart, 120], [1, 0], {
+  const exitOpacity = interpolate(frame, [exitStart, 240], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
